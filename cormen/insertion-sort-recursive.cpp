@@ -7,7 +7,6 @@ vector<int> sort(vector<int> arr, int j, int key)
 {
         if (arr[j] > key && j >= 0)
         {
-                int temp = arr[j];
                 arr[j+1] = arr[j];
 		return sort(arr, j-1, key);
         }
@@ -15,20 +14,20 @@ vector<int> sort(vector<int> arr, int j, int key)
 	return arr;
 }
 
-vector<int> insertion_sort(vector<int> arr, int i, int end)
+vector<int> insertion_sort(vector<int> arr, int i)
 {
-	if (i >= end) return arr;
+	if (i >= arr.size()) return arr;
 	int j = i-1;
 	int key = arr[i];
 	arr = sort(arr, j, key);
-	return insertion_sort(arr, i+1, end);
+	return insertion_sort(arr, i+1);
 }
 
 
 int main()
 {
         vector<int> arr = {3, 9, 7, 8, 6, 4, 0, 5, 2, 1};
-	arr = insertion_sort(arr, 0, arr.size());
+	arr = insertion_sort(arr, 0);
         cout << "arr = [";
         for(int i = 0; i < arr.size(); i++)
 	{
@@ -37,4 +36,5 @@ int main()
         	else { cout << ", "; }
         }
         cout << "\n";
+	return 0;
 }

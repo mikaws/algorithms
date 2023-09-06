@@ -2,16 +2,14 @@
 #include <fstream>
 #include <string>
 
-using namespace std;
-
 int main()
 {
-	ifstream in("calories.txt");
-		if (!in) cerr << "no file\n";
-	string endline = "\n";
+	std::ifstream in("calories.txt");
+		if (!in) std::cerr << "no file\n";
+	std::string endline = "\n";
 	int sum = 0;
 	int highest = 0;
-	for(string line; getline(in,line);)
+	for(std::string line; std::getline(in,line);)
 	{
 		if(line.empty())
 		{
@@ -26,6 +24,6 @@ int main()
 		}
 	}
 	in.close();
-	cout << "the highest: " << highest << "\n";
+	std::cout << "the highest: " << highest << "\n";
 	return 0;
 }
